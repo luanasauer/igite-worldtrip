@@ -1,41 +1,22 @@
-import { Center, Image, Flex, Text, Square, Box, Stack, Heading } from "@chakra-ui/react"
+
+import { Box, Center, Text } from "@chakra-ui/react"
+import Banner from "../components/Banner"
 import ContinetsSlide from "../components/ContinentsSlide"
 import TravelTypes from "../components/TravelTypes"
 
 export default function Home() {
   return (
     <>
-      <Flex
-        w="100%"
-        h={["163px", "250px", "250px", "335px"]}
-        bgImage="url('./../images/Background.png')"
-      //bgPosition={["100% 20%", "100% 20%", "100% 30%"]}
-      //bgRepeat="no-repeat"
-      //bgSize="cover"
-      >
-        <Flex justify={['center', 'space-between']} align="center" w="100%" mx="auto" px={["4", "10", "15", "20", "36"]}>
-          <div>
-            <Heading color="gray.100" fontWeight="500" fontSize={["xl", "2xl", "2xl", "2xl", "4xl"]}>
-              5 continentes,<br />infinitas possibilidades.
-            </Heading>
-            <Text color="gray.300" mt="5" fontSize={["0.8rem", "xl"]} maxW={["100%", "100%", "100%", "550px"]}>
-              Chegou a hora de tirar do papel a viagem que você sempre sonhou.
-            </Text>
-          </div>
-          <Image
-            //w={["300px", "300px", "300px", "430px"]}
-            //display={['none', 'none',
-            //'block']}
-            src="/images/Airplane.svg"
-            alt="Avião amarelo."
-            transform="translateY(48px)"
-            ml="8"
-          />
-        </Flex>
 
-      </Flex>
-
+      <Banner></Banner>
       <TravelTypes></TravelTypes>
+      <Box w={["60px", "90px"]} mx="auto" h="2px" bg="gray.700" my={["9", "20"]} />
+      <Center m="20" >
+        <Text fontWeight={500} fontSize="36px" align="center">
+          Vamos nessa?<br />
+          Então escolha seu continente
+        </Text>
+      </Center>
       <ContinetsSlide></ContinetsSlide>
 
     </>

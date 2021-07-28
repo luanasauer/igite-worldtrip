@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react"
-import { Banner } from "../../components/Banner"
+import Cities from "../../components/Cities"
+import { ContinentBanner } from "../../components/ContinentBanner"
 import { ContinentSection } from "../../components/ContinentSection"
 
 
@@ -7,8 +8,9 @@ export default function Continent() {
 
     return (
         <Box>
-            <Banner></Banner>
+            <ContinentBanner></ContinentBanner>
             <ContinentSection />
+            <Cities></Cities>
         </Box>
 
     )

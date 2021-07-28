@@ -5,9 +5,6 @@ export const theme = extendTheme({
 
     components: {
         Divider: {
-
-
-
             // 2. We can add a new button size or extend existing
             sizes: {
                 xl: {
@@ -43,8 +40,8 @@ export const theme = extendTheme({
         global: {
             body: {
 
-                //bg: 'gray.900',
-                //color: 'gray.50'
+                bg: 'gray.100',
+                color: 'gray.700'
             }
         }
     }
