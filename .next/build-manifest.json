@@ -29,10 +29,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/continent": [
+    "/continent/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/continent.js"
+      "static/chunks/pages/continent/[id].js"
     ]
   },
   "ampFirstPages": []

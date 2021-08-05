@@ -1,10 +1,30 @@
 
 import { Box, Center, Text } from "@chakra-ui/react"
+import React from "react";
+import { useEffect, useState } from "react";
 import Banner from "../components/Banner"
-import ContinetsSlide from "../components/ContinentsSlide"
+import ContinentsSlide from "../components/ContinentsSlide";
 import TravelTypes from "../components/TravelTypes"
+import { api } from "../services/api";
 
+interface ContinentResponseProps {
+  id: string;
+  name: string;
+  urlImg: string;
+  title: string;
+
+}
 export default function Home() {
+
+  const [continents, setContinents] = useState<ContinentResponseProps[]>([]);
+
+  useEffect(() => {
+    api.get<ContinentResponseProps[]>('continents').then(response => {
+      setContinents(response.data);
+    });
+  }, []);
+
+
   return (
     <>
 
@@ -15,9 +35,13 @@ export default function Home() {
         <Text fontWeight={500} fontSize="36px" align="center">
           Vamos nessa?<br />
           Então escolha seu continente
+
         </Text>
       </Center>
-      <ContinetsSlide></ContinetsSlide>
+
+      <ContinentsSlide
+
+        continents={continents} />
 
     </>
   )

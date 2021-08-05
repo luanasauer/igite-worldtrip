@@ -21,8 +21,17 @@ import SwiperCore, {
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
 
+interface ContinentResponseProps {
+    id: string;
+    name: string;
+    urlImg: string;
+    title: string;
+}
+interface ContinentProps {
+    continents: ContinentResponseProps[];
+}
 
-export default function ContinetsSlide() {
+export default function ContinentsSlide({ continents }: ContinentProps) {
 
     return (
 
@@ -33,54 +42,39 @@ export default function ContinetsSlide() {
                 pagination={{ clickable: true }}
                 style={{ width: '100%', flex: '1' }}
             >
-                {/* 
-                <SwiperSlide>América do Norte</SwiperSlide>
-                <SwiperSlide>América do Sul</SwiperSlide>
-                <SwiperSlide>Ásia</SwiperSlide>
-                <SwiperSlide>África</SwiperSlide>
-                <SwiperSlide>Oceania</SwiperSlide> */}
-                <SwiperSlide >
-                    <Flex
-                        w="100%"
-                        h="100%"
-                        align="center"
-                        justify="center"
-                        direction="column"
-                        bgImage="url('./../images/ContinentImage.svg')"
-                        //bgPosition="100% 30%"
-                        bgRepeat="no-repeat"
-                        bgSize="cover"
-                        textAlign="center"
-                    >
-                        <Link href="/continent">
-                            <a>
-                                <Heading fontSize={["3xl", "4xl", "5xl"]} color="gray.100" fontWeight="bold">Europa</Heading>
-                                <Text fontWeight="bold" color="gray.300" fontSize={["0.8rem", "1xl", "2xl"]} mt={["2", "4"]}>Teste</Text>
-                            </a>
-                        </Link>
-                    </Flex>
-                </SwiperSlide>
-                <SwiperSlide >
-                    <Flex
-                        w="100%"
-                        h="100%"
-                        align="center"
-                        justify="center"
-                        direction="column"
-                        bgImage="url('./../images/ContinentImage.svg')"
-                        //bgPosition="100% 30%"
-                        bgRepeat="no-repeat"
-                        bgSize="cover"
-                        textAlign="center"
-                    >
-                        <Link href="/continent">
-                            <a>
-                                <Heading fontSize={["3xl", "4xl", "5xl"]} color="gray.100" fontWeight="bold">Europa</Heading>
-                                <Text fontWeight="bold" color="gray.300" fontSize={["0.8rem", "1xl", "2xl"]} mt={["2", "4"]}>Teste</Text>
-                            </a>
-                        </Link>
-                    </Flex>
-                </SwiperSlide>
+                {continents.map(continent => (
+                    <SwiperSlide key={continent.id} >
+                        <Flex
+                            w="100%"
+                            h="100%"
+                            align="center"
+                            justify="center"
+                            direction="column"
+                            bgImage={continent.urlImg}
+                            bgPosition="100% 40%"
+                            bgRepeat="no-repeat"
+                            bgSize="cover"
+                            textAlign="center"
+                        >
+                            <Link href={`/continent/${continent.id}`}>
+                                <a>
+                                    <Heading
+                                        fontSize={["3xl", "4xl", "5xl"]}
+                                        color="gray.100"
+                                        fontWeight="bold">
+                                        {continent.name}
+                                    </Heading>
+                                    <Text
+                                        fontWeight="bold"
+                                        color="gray.300"
+                                        fontSize={["0.8rem", "1xl", "2xl"]}
+                                        mt={["2", "4"]}>{continent.title}
+                                    </Text>
+                                </a>
+                            </Link>
+                        </Flex>
+                    </SwiperSlide>
+                ))}
             </Swiper >
         </Flex >
 
