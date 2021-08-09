@@ -1,17 +1,10 @@
 import { Flex, Text } from "@chakra-ui/react"
 
-// interface ContinentBannerProps {
-//     name: string;
-// }
-
-interface BannerContinentProps {
+interface ContinentBannerProps {
     name: string;
     urlImg: string;
 }
-export function ContinentBanner({ name, urlImg }: BannerContinentProps) {
-
-    //export function ContinentBanner() {
-
+export function ContinentBanner({ name, urlImg }: ContinentBannerProps) {
     return (
 
         <Flex
@@ -19,7 +12,6 @@ export function ContinentBanner({ name, urlImg }: BannerContinentProps) {
             h={["150px", "300px", "500px"]}
             px={["0", "0", "36"]}
             pt={["0", "0", "72"]}
-            // bgImage="url('./../images/ContinentImage.svg')"
             bgImage={urlImg}
             bgPosition="center"
             bgRepeat="no-repeat"
@@ -33,10 +25,6 @@ export function ContinentBanner({ name, urlImg }: BannerContinentProps) {
                 fontWeight="500">
                 {name}
             </Text>
-
         </Flex >
-
-
-
     );
 }

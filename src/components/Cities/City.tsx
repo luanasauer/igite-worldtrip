@@ -1,8 +1,18 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+interface MostVisitedCitiesProps {
+    id: number,
+    name: string,
+    country: string,
+    image: string,
+    countryIcon: string
+}
 
-export default function City({ name, country, flag, image }) {
+
+export default function City({ name, country, countryIcon, image }: MostVisitedCitiesProps) {
     return (
-        <Box borderRadius="4px" overflow="hidden">
+
+
+        < Box borderRadius="lg" overflow="hidden" maxW="sm" borderWidth="1px" >
             <Image src={image}
                 alt={`${name}, ${country}`}
                 h="170px"
@@ -18,8 +28,8 @@ export default function City({ name, country, flag, image }) {
                     <Heading fontSize="xl" fontWeight="500">{name}</Heading>
                     <Text mt="3" fontSize="md" color="gray.500" fontWeight="500">{country}</Text>
                 </Flex>
-                <Image src={flag} w="30px" h="30px" borderRadius="50%" objectFit="cover" />
+                <Image src={countryIcon} w="30px" h="30px" borderRadius="50%" objectFit="cover" />
             </Flex>
-        </Box>
+        </Box >
     )
 }

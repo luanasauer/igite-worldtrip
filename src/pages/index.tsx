@@ -1,5 +1,5 @@
 
-import { Box, Center, Text } from "@chakra-ui/react"
+import { Box, Center, Divider, Text } from "@chakra-ui/react"
 import React from "react";
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner"
@@ -28,20 +28,22 @@ export default function Home() {
   return (
     <>
 
-      <Banner></Banner>
-      <TravelTypes></TravelTypes>
-      <Box w={["60px", "90px"]} mx="auto" h="2px" bg="gray.700" my={["9", "20"]} />
+      <Banner />
+      <TravelTypes />
+      <Box w={["60px", "90px"]} mx="auto" my={["9", "20"]}>
+        <Divider
+          w={{ base: '3.75rem', sm: '5.625rem' }}
+          border={{ base: '1px', sm: '2px' }}
+          borderColor="dark.400"
+        />
+      </Box>
       <Center m="20" >
         <Text fontWeight={500} fontSize="36px" align="center">
           Vamos nessa?<br />
           Então escolha seu continente
-
         </Text>
       </Center>
-
-      <ContinentsSlide
-
-        continents={continents} />
+      <ContinentsSlide continents={continents} />
 
     </>
   )

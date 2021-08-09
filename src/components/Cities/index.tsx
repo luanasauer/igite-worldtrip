@@ -2,9 +2,19 @@
 import { Grid, Heading } from "@chakra-ui/react";
 import City from "./City";
 
-// import {ContinentProps} from '../../pages/continent/[slug]'
+interface MostVisitedCitiesProps {
+    id: number,
+    name: string,
+    country: string,
+    image: string,
+    countryIcon: string
+}
+interface CitiesProps {
+    mostVisitedCities: MostVisitedCitiesProps[]
+}
 
-export default function Cities() {
+
+export default function Cities({ mostVisitedCities }: CitiesProps) {
     return (
         <>
             <Heading fontWeight="500" fontSize={["2xl", "4xl"]} mb="10">Cidades +100</Heading>
@@ -14,15 +24,15 @@ export default function Cities() {
                 alignItems="center"
                 justifyContent="center"
                 px={["30px", "0"]}>
-                {/* {continent.cities100.map(city => (
+                {mostVisitedCities.map(city => (
                     <City
-                        key={city.city}
-                        name={city.city}
+                        id={city.id}
+                        name={city.name}
                         country={city.country}
-                        flag={city.flag}
-                        image={city.thumbnail}
+                        countryIcon={city.countryIcon}
+                        image={city.image}
                     />
-                ))} */}
+                ))}
             </Grid>
         </>
     )

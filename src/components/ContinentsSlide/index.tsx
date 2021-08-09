@@ -1,6 +1,7 @@
 
 import React from "react";
-import { Flex, Heading, Image, Link, Text } from "@chakra-ui/react";
+import { Flex, Heading, Link, Text } from "@chakra-ui/react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,14 +10,10 @@ import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css"
 import "swiper/components/pagination/pagination.min.css"
 
-//import "./styles.css";
-
-
 // import Swiper core and required modules
 import SwiperCore, {
     Navigation, Pagination, Mousewheel, Keyboard
 } from 'swiper/core';
-
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
@@ -77,6 +74,5 @@ export default function ContinentsSlide({ continents }: ContinentProps) {
                 ))}
             </Swiper >
         </Flex >
-
     )
 }
